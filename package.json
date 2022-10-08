@@ -1,0 +1,45 @@
+{
+  "name": "learn-markup-applab",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:hainv-2859/Learn-markup-applab.git",
+  "author": "hainv-2859 <nguyen.van.hai-b@sun-asterisk.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "sass scss/main.scss css/main.css -w",
+    "build": "sass scss/main.scss css/main.css --style compressed",
+    "prettier": "prettier -w .",
+    "prepare": "husky install",
+    "pre-commit": "lint-staged",
+    "lint:css": "stylelint \"scss/**/*.scss\"",
+    "lint:css:fix": "stylelint \"scss/**/*.scss\" --fix"
+  },
+  "lint-staged": {
+    "*.scss": [
+      "yarn lint:css:fix",
+      "git add ."
+    ],
+    "*.html": [
+      "prettier -w ",
+      "git add ."
+    ],
+    "*.js": [
+      "prettier -w ",
+      "git add ."
+    ]
+  },
+  "devDependencies": {
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "postcss-scss": "^4.0.5",
+    "prettier": "^2.7.1",
+    "sass": "^1.55.0",
+    "stylelint": "^14.13.0",
+    "stylelint-config-recommended-scss": "^7.0.0",
+    "stylelint-config-standard": "^28.0.0",
+    "stylelint-scss": "^4.3.0"
+  },
+  "dependencies": {
+    "postcss": "^8.4.17"
+  }
+}
